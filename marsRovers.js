@@ -1,52 +1,60 @@
+
+
 //SHOWS DIMENSIONS OF THE SQUARE . assume is 10x10
-var platou = alert("This is the upper right point of the platou [5,5]");
+var platou = [5, 5]
 
 //BOTH START IN THE LOWER LEFT
 var marsRover = {
-	position: [0, 0],
+	position: [1, 2],
 	direction: "N"
 };
 
 var marsRover1 = {
-	position: [0, 0],
-	direction: "N"
+	position: [3, 3],
+	direction: "E"
+};
+//INSTRUCTIONS FOR EACH ROVER
+var userChoice = "LMLMLMLMM"
+
+var userChoice1 = "MMRMMRMRRM"
+
+userInput();
+
+//RECOGNIZE WHICH INPUT GOES FOR WHICH ROBOT
+
+module.exports = {
+  square: function (a) {
+    return a*a;
+  },
+
+	sumy: function (a) {
+    return a+a;
+  }
 };
 
-//TO PUT THE FOUR INPUTS
-var marsRoverP = alert(
-	"This is the current position of the first rover" + "" + marsRover.position
-);
+function userInput() {
 
-var userChoice = prompt(
-	"Move the first rover : press M to go foward, press L to go left, press R to go right"
-);
+	if (userChoice.length > 0) {
+		var selectedChoice = userChoice;
+		var selectedRover = marsRover;
+		enterData(selectedChoice, selectedRover);
+	} else {
+		//CASE THERE IS NO INPUT REMAINS THE SAME POSITION
+		console.log(marsRover.position[0].toString() + marsRover.position[1].toString() + marsRover.direction);
+		return marsRover.position[0].toString() + marsRover.position[1].toString() + marsRover.direction
+	}
 
-var marsRover1P = alert(
-	"This is the current position of the second rover" + "" + marsRover1.position
-);
-
-var userChoice1 = prompt(
-	"Move the second rover : press M to go foward, press L to go left, press R to go right"
-);
-
-//THE TWO CHOICES FOR EACH ROBOT
-
-if (userChoice.length > 0) {
-	var selectedChoice = userChoice;
-	var selectedRover = marsRover;
-	enterData(selectedChoice, selectedRover);
-} else {
-	//CASE THERE IS NO INPUT REMAINS THE SAME POSITION
-	console.log(marsRover.position + " " + marsRover.direction);
+	if (userChoice1.length > 0) {
+		var selectedChoice = userChoice1;
+		var selectedRover = marsRover1;
+		enterData(selectedChoice, selectedRover);
+	} else {
+		//CASE THERE IS NO INPUT REMAINS THE SAME POSITION
+		console.log(marsRover1.position[0].toString() + marsRover1.position[1].toString() + marsRover1.direction);
+		return marsRover1.position[0].toString() + marsRover1.position[1].toString() + marsRover1.direction
+	}
 }
 
-if (userChoice1.length > 0) {
-	var selectedChoice = userChoice1;
-	var selectedRover = marsRover1;
-	enterData(selectedChoice, selectedRover);
-} else {
-	console.log(marsRover1.position + " " + marsRover1.direction);
-}
 
 //CODE FOR THE SELECTED CHOICE - CALLS THE OTHER FUNCTIONS
 function enterData(selectedChoice, selectedRover) {
@@ -61,8 +69,8 @@ function enterData(selectedChoice, selectedRover) {
 			console.log("Try it again");
 		}
 	}
-
-	console.log(selectedRover.position + " " + selectedRover.direction);
+	console.log(selectedRover.position[0].toString() + selectedRover.position[1].toString() + selectedRover.direction);
+	return selectedRover.position[0].toString() + selectedRover.position[1].toString() + selectedRover.direction
 }
 
 //FUNTIONS THAT ARE CALLED DEPENDING OF THE INPUT
@@ -70,7 +78,7 @@ function enterData(selectedChoice, selectedRover) {
 function goForward(selectedRover) {
 	switch (selectedRover.direction) {
 		case "N":
-			if (selectedRover.position[1] > 8) {
+			if (selectedRover.position[1] > 4) {
 				selectedRover.position[1] = 0;
 				break;
 			} else {
@@ -79,7 +87,7 @@ function goForward(selectedRover) {
 			}
 			break;
 		case "E":
-			if (selectedRover.position[0] > 8) {
+			if (selectedRover.position[0] > 4) {
 				selectedRover.position[0] = 0;
 				break;
 			} else {
@@ -89,7 +97,7 @@ function goForward(selectedRover) {
 			break;
 		case "S":
 			if (selectedRover.position[1] < 1) {
-				selectedRover.position[1] = 9;
+				selectedRover.position[1] = 5;
 				break;
 			} else {
 				selectedRover.position[1]--;
@@ -98,7 +106,7 @@ function goForward(selectedRover) {
 			break;
 		case "W":
 			if (selectedRover.position[0] < 1) {
-				selectedRover.position[0] = 9;
+				selectedRover.position[0] = 5;
 				break;
 			} else {
 				selectedRover.position[0]--;
@@ -142,7 +150,9 @@ function turnRight(selectedRover) {
 	}
 }
 
-exports._test = {
-  marsRover: marsRover,
-  marsRover1: marsRover1
-}
+
+
+	//exports._test = {
+	  //marsRover: marsRover,
+	  //marsRover1: marsRover1
+	//}

@@ -1,8 +1,7 @@
 {
   "name": "andrea",
   "version": "1.0.0",
-  "description": "",
-  "main": "MarsRoversThoughtworks.js",
+  "main": "MarsRovers.js",
   "scripts": {
     "test": "mocha"
   },
@@ -12,5 +11,9 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^4.0.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "description": ""
 }
