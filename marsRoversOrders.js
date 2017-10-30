@@ -15,7 +15,6 @@ enterData: function (selectedChoice, selectedRover) {
 		}
 	}
 	return selectedRover.position[0].toString() + selectedRover.position[1].toString() + selectedRover.direction
+}
 
-},
-
-};
+}

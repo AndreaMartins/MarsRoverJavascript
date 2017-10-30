@@ -1,10 +1,10 @@
 
 module.exports = {
   //FUNCTIONS THAT ARE CALLED DEPENDING OF THE INPUT
-  goForward: function (selectedRover, platou) {
+  goForward: function (selectedRover) {
   	switch (selectedRover.direction) {
   		case "N":
-  			if (selectedRover.position[1] > platou[1]) {
+  			if (selectedRover.position[1] > 5) {
   				selectedRover.position[1] = 0;
   				break;
   			} else {
@@ -13,7 +13,7 @@ module.exports = {
   			}
   			break;
   		case "E":
-  			if (selectedRover.position[0] > platou[0]) {
+  			if (selectedRover.position[0] > 5) {
   				selectedRover.position[0] = 0;
   				break;
   			} else {
@@ -23,7 +23,7 @@ module.exports = {
   			break;
   		case "S":
   			if (selectedRover.position[1] < 1) {
-  				selectedRover.position[1] = platou[1];
+  				selectedRover.position[1] = 5;
   				break;
   			} else {
   				selectedRover.position[1]--;
@@ -32,7 +32,7 @@ module.exports = {
   			break;
   		case "W":
   			if (selectedRover.position[0] < 1) {
-  				selectedRover.position[0] = platou[0];
+  				selectedRover.position[0] = 5;
   				break;
   			} else {
   				selectedRover.position[0]--;

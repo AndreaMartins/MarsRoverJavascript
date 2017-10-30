@@ -1,33 +1,22 @@
 var marsRoversOrders = require('./marsRoversOrders');
 
 
-//SHOWS DIMENSIONS OF THE SQUARE . assume is 10x10
-var platou = [5, 5]
-
-//BOTH START IN THE LOWER LEFT
-var marsRovers = [
-{
-	position: [1, 2],
-	direction: "N",
-	userChoice: "LMLMLMLMM"
-},
-{ position: [3, 3],
-	direction: "E",
-	userChoice: "MMRMMRMRRM"
-}; ]
-
-//RECOGNIZE WHICH INPUT GOES FOR WHICH ROBOT
-
 module.exports = {
 
+//LOOP THE ROVERS THROUGTH INSTRUCTIONS
+initRover: function (rovers, userChoices) {
+		var arrayResults = [];
+		for (var i=0; i<rovers.length; i++){
+			if (userChoices[i].length > 0) {
+				var selectedChoice = userChoices[i];
+				var selectedRover = rovers[i];
+				arrayResults.push(marsRoversOrders.enterData(selectedChoice, selectedRover));
+			} else {
+				//CASE THERE IS NO INPUT REMAINS THE SAME POSITION
+				console.log(rovers[i].position + " " + rovers[i].direction);
+			}
+		}
+	return arrayResults;
+},
 
- userInput: function( userChoice, marsRover) {
-	if (userChoice.length > 0) {
-		var selectedChoice = userChoice;
-		var selectedRover = marsRover;
-		marsRoversOrders.enterData(userChoice, marsRover);
-	} else {
-		//CASE THERE IS NO INPUT REMAINS THE SAME POSITION
-		return marsRover.position[0].toString() + marsRover.position[1].toString() + marsRover.direction
-	}
-};
+}
