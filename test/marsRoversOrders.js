@@ -3,15 +3,15 @@ var marsRoversOrders= require('../marsRoversOrders');
 
 describe('enterData', function(){
 
-  it ('enterData', function(){
+  it ('Should return the new position of the rover', function(){
 
     var selectedRover = {
       position: [1, 2],
       direction: "N"
     };
-    var selectedChoice = "L";
+    var selectedChoice = "LMMRLRML";
 
-    marsRoversOrders.enterData(selectedChoice, selectedRover).should.equal('12W');
+    marsRoversOrders.enterData(selectedChoice, selectedRover).should.equal('5 3 W');
 
   });
 });

@@ -3,7 +3,7 @@ var marsRoversOrders = require('./marsRoversOrders');
 
 module.exports = {
 
-//LOOP THE ROVERS THROUGTH INSTRUCTIONS
+//LOOP THE ROVERS THROUGTH INSTRUCTIONS GIVEN
 initRover: function (rovers, userChoices) {
 		var arrayResults = [];
 		for (var i=0; i<rovers.length; i++){
@@ -16,7 +16,7 @@ initRover: function (rovers, userChoices) {
 				console.log(rovers[i].position + " " + rovers[i].direction);
 			}
 		}
-	return arrayResults;
-},
+		return arrayResults;
+	},
 
 }
