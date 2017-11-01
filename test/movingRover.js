@@ -59,6 +59,7 @@ describe('turnRight', function() {
 
 });
 
+
 describe('goForward', function() {
 
     it('Should add +1 to the second element of the array when the direction is N', function() {

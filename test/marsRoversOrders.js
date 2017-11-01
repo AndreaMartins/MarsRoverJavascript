@@ -11,7 +11,9 @@ describe('enterData', function(){
     };
     var selectedChoice = "LMMRLRML";
 
-    marsRoversOrders.enterData(selectedChoice, selectedRover).should.equal('5 3 W');
+    var platou =[5,5]
+
+    marsRoversOrders.enterData(selectedChoice, selectedRover, platou).should.equal('5 3 W');
 
   });
 });

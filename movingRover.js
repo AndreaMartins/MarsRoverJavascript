@@ -1,10 +1,11 @@
+var data = require('./fetchData');
 
 module.exports = {
-  //FUNCTIONS THAT ARE CALLED DEPENDING OF THE INPUT
-  goForward: function (selectedRover) {
+  //FUNCTIONS THAT ARE CALLED DEPENDING OF THE LETTERS (M, R OR L)
+  goForward: function (selectedRover, platou) {
   	switch (selectedRover.direction) {
   		case "N":
-  			if (selectedRover.position[1] > 5) {
+  			if (selectedRover.position[1] > platou[1]) { //INSTEAD OF 5 PUT PLATOU[1]
   				selectedRover.position[1] = 0;
   				break;
   			} else {
@@ -13,7 +14,7 @@ module.exports = {
   			}
   			break;
   		case "E":
-  			if (selectedRover.position[0] > 5) {
+  			if (selectedRover.position[0] > platou[0]) {//INSTEAD OF 5 PUT PLATOU[0]
   				selectedRover.position[0] = 0;
   				break;
   			} else {
@@ -23,7 +24,7 @@ module.exports = {
   			break;
   		case "S":
   			if (selectedRover.position[1] < 1) {
-  				selectedRover.position[1] = 5;
+  				selectedRover.position[1] = platou[1];//INSTEAD OF 5 PUT PLATOU[1]
   				break;
   			} else {
   				selectedRover.position[1]--;
@@ -32,7 +33,7 @@ module.exports = {
   			break;
   		case "W":
   			if (selectedRover.position[0] < 1) {
-  				selectedRover.position[0] = 5;
+  				selectedRover.position[0] = platou[0];//INSTEAD OF 5 PUT PLATOU[0]
   				break;
   			} else {
   				selectedRover.position[0]--;
@@ -43,6 +44,7 @@ module.exports = {
   	}
   	return selectedRover.position
   },
+
 
   turnLeft: function (selectedRover) {
   	switch (selectedRover.direction) {
@@ -79,4 +81,5 @@ module.exports = {
   	}
   	return selectedRover.direction
   },
+
 }
