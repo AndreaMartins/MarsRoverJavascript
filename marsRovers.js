@@ -1,9 +1,6 @@
-var marsRoversOrders = require('./marsRoversOrders');
+const marsRoversOrders = require('./marsRoversOrders');
 
-module.exports = {
-
-//RECEIVES THE ARRAYS (ROVERS, USERCHOICES AND PLATOU) AND RETURNS AN ARRAY WITH THE RESULTS OF THE INSTRUCTIONS GIVEN
-initRover: function (rovers, userChoices, platou) {
+function initRover(rovers, userChoices, platou) {
 		var arrayResults = [];
 		for (var i=0; i<rovers.length; i++){
 			if (userChoices[i].length > 0) {
@@ -16,6 +13,14 @@ initRover: function (rovers, userChoices, platou) {
 			}
 		}
 		return arrayResults;
-	},
+	}
 
+function printCoordinates(arrayResults){
+		arrayResults.map(line => console.log(line))
+}
+
+
+module.exports = {
+	initRover:initRover,
+	printCoordinates: printCoordinates
 }

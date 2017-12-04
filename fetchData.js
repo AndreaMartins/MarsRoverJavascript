@@ -1,15 +1,20 @@
 // THIS FUNCTION EXTRACTS EACH LINE OF "INPUTDAT.TXT" AND PUT IT IN AN ARRAY CALLED DATA
 
-var fs = require('fs');
-var path = require('path');
-var readStream = fs.createReadStream('./inputData.txt', 'utf8');
-var data = "";
+const fs = require('fs');
 
-readStream.on('data', function(chunk) {
-    data += chunk;
-}).on('end', function() {
-    console.log(data);
-    data = (data.split("\n"));
-    module.exports = data;
+function fetchData(fileName, callback){
 
-})
+  const dataStream = fs.createReadStream(fileName, 'utf8');
+  let buffer ="";
+
+  dataStream.on('data', function(chunk) {
+      buffer += chunk;
+  }).on('end', function() {
+      callback(buffer.split("\n"));
+
+  })
+}
+
+module.exports = {
+   fetchData: fetchData
+}
